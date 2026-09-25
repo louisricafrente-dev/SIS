@@ -44,6 +44,7 @@ public class Register extends JFrame {
 		setResizable(false);
 		setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
 		setBounds(100, 100, 320, 500);
+		setLocationRelativeTo(null);
 		registerFrame = new JPanel();
 		registerFrame.setBorder(new EmptyBorder(5, 5, 5, 5));
 
@@ -79,10 +80,8 @@ public class Register extends JFrame {
 		JButton btnNewButton = new JButton("Back");
 		btnNewButton.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent e) {
-				
 				Login logback = new Login();
-				logback.show();
-				
+				logback.setVisible(true);
 				dispose();
 			}
 		});

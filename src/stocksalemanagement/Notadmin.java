@@ -30,13 +30,15 @@ public class Notadmin extends JDialog {
 	 * Create the dialog.
 	 */
 	public Notadmin() {
-		setBounds(100, 100, 363, 102);
+		setModal(true);
+		setBounds(100, 100, 363, 110);
+		setLocationRelativeTo(null);
 		getContentPane().setLayout(new BorderLayout());
 		contentPanel.setLayout(new FlowLayout());
 		contentPanel.setBorder(new EmptyBorder(5, 5, 5, 5));
 		getContentPane().add(contentPanel, BorderLayout.CENTER);
 		{
-			JLabel lblNewLabel = new JLabel("di ka nga admin");
+			JLabel lblNewLabel = new JLabel("Invalid credentials. You are not an admin.");
 			contentPanel.add(lblNewLabel);
 		}
 		{
@@ -45,13 +47,13 @@ public class Notadmin extends JDialog {
 			getContentPane().add(buttonPane, BorderLayout.SOUTH);
 			{
 				JButton okButton = new JButton("OK");
-				okButton.setActionCommand("OK");
+				okButton.addActionListener(e -> dispose());
 				buttonPane.add(okButton);
 				getRootPane().setDefaultButton(okButton);
 			}
 			{
 				JButton cancelButton = new JButton("Cancel");
-				cancelButton.setActionCommand("Cancel");
+				cancelButton.addActionListener(e -> dispose());
 				buttonPane.add(cancelButton);
 			}
 		}

@@ -1,28 +1,17 @@
 package stocksalemanagement;
 
-import java.awt.EventQueue;
-
-import javax.swing.JFrame;
-import javax.swing.JPanel;
-import javax.swing.border.EmptyBorder;
-import java.awt.FlowLayout;
-import java.awt.Window.Type;
-import javax.swing.JSeparator;
-import javax.swing.SwingConstants;
-import javax.swing.JDesktopPane;
-import javax.swing.JSplitPane;
-import javax.swing.JLabel;
-import java.awt.Font;
-import javax.swing.JTextField;
-import javax.swing.JEditorPane;
-import javax.swing.JTextPane;
-import javax.swing.JPasswordField;
 import java.awt.Color;
-import javax.swing.border.MatteBorder;
-import javax.swing.JButton;
-import java.awt.event.ActionListener;
+import java.awt.EventQueue;
+import java.awt.Font;
 import java.awt.event.ActionEvent;
-import javax.swing.JSlider;
+import java.awt.event.ActionListener;
+import javax.swing.JButton;
+import javax.swing.JFrame;
+import javax.swing.JLabel;
+import javax.swing.JPanel;
+import javax.swing.JPasswordField;
+import javax.swing.JTextField;
+import javax.swing.SwingConstants;
 
 public class Login extends JFrame {
 
@@ -55,6 +44,7 @@ public class Login extends JFrame {
 		setType(Type.UTILITY);
 		setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
 		setBounds(100, 100, 320, 320);
+		setLocationRelativeTo(null);
 		loginFrame = new JPanel();
 		loginFrame.setBackground(new Color(255, 255, 255));
 
@@ -68,13 +58,12 @@ public class Login extends JFrame {
 		loginFrame.add(lblNewLabel);
 		
 		username = new JTextField();
-		username.setText(" ");
 		username.setBounds(100, 104, 177, 20);
 		loginFrame.add(username);
 		username.setColumns(10);
 		
 		JLabel lblNewLabel_1 = new JLabel("Username");
-		lblNewLabel_1.setBounds(37, 107, 53, 14);
+		lblNewLabel_1.setBounds(37, 107, 60, 14);
 		loginFrame.add(lblNewLabel_1);
 		
 		password = new JPasswordField();
@@ -82,7 +71,7 @@ public class Login extends JFrame {
 		loginFrame.add(password);
 		
 		JLabel lblNewLabel_2 = new JLabel("Password");
-		lblNewLabel_2.setBounds(37, 145, 46, 14);
+		lblNewLabel_2.setBounds(37, 145, 60, 14);
 		loginFrame.add(lblNewLabel_2);
 		
 		JLabel lblNewLabel_3 = new JLabel("Sales and Inventory System");
@@ -93,31 +82,27 @@ public class Login extends JFrame {
 		JButton btnNewButton = new JButton("Login");
 		btnNewButton.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent e) {
+				String user = username.getText().trim();
+				String pass = new String(password.getPassword());
 				
-				String user = username.getText();
-				String pass = password.getText();
-				
-				if (user.contains("admin") && pass.contains("admin")) {
+				if ("admin".equals(user) && "admin".equals(pass)) {
 					Menu menu = new Menu();
-					menu.show();
+					menu.setVisible(true);
 					dispose();
 				} else {
 					Notadmin not = new Notadmin();
-					not.show();
-					dispose();
+					not.setVisible(true);
 				}
 			}
 		});
 		btnNewButton.setBounds(54, 216, 89, 23);
 		loginFrame.add(btnNewButton);
 		
-//		register button
 		JButton register = new JButton("Register");
 		register.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent e) {
 				Register regframe = new Register();
-				regframe.show();
-				
+				regframe.setVisible(true);
 				dispose();
 			}
 		});
